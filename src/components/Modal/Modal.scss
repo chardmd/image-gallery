@@ -1,0 +1,39 @@
+@import "../../assets/variables";
+
+.ModuleModal {
+  display: flex;
+  position: relative;
+  height: 100vh;
+
+  .wrapperBody {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+    width: 100%;
+    max-width: $base-line-height * 40.25;
+  }
+
+  .caretLeft {
+    cursor: pointer;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.7);
+    user-select: none;
+  }
+
+  .caretRight {
+    cursor: pointer;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.7);
+    user-select: none;
+  }
+
+  .closeButton {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    position: absolute;
+    top: $base-line-height / 4;
+    right: $base-line-height / 4;
+  }
+}

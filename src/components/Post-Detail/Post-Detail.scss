@@ -1,0 +1,115 @@
+@import "../../assets/variables";
+
+.UseBar {
+  @media (min-width: $tablet) {
+    margin-bottom: $base-line-height * (3 / 4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .postDetailAvatar {
+    border-radius: 100%;
+    height: 25px;
+    float: left;
+    margin: 0px;
+    margin-right: $base-line-height * (1 / 2);
+  }
+
+  .postDetailUsername {
+    line-height: $base-line-height * 1;
+    margin-bottom: $base-line-height * (3 / 4);
+  }
+}
+
+.PostDetails {
+  font-size: 0.75786rem;
+  line-height: 1.4;
+
+  .wrapper {
+    margin-bottom: $base-line-height * 1;
+    overflow: hidden;
+  }
+
+  .likes {
+    float: left;
+  }
+
+  .strong {
+    color: rgba(0, 0, 0, 0.4);
+    float: right;
+  }
+}
+
+.ModuleDetail {
+  background: white;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: 750px) {
+    flex-direction: row-reverse;
+    margin-top: $base-line-height * 1;
+  }
+
+  .moduleDetailWrapper {
+    padding: $base-line-height * (3 / 4);
+    padding-bottom: 0;
+    @media (min-width: 750px) {
+      width: $base-line-height * 13;
+      padding: $base-line-height * 1;
+    }
+
+    .container {
+      display: none;
+      @media (min-width: 750px) {
+        display: block;
+      }
+    }
+  }
+
+  .imageWrapper {
+    display: block;
+    background-color: lightgray;
+    flex: 1 0 0%;
+    width: 100%;
+    position: relative;
+
+    .imageContainer {
+      flex-direction: column;
+      flex-shrink: 0;
+      position: relative;
+      padding-bottom: 100%;
+      overflow: hidden;
+
+      .imageItem {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        vertical-align: baseline;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .pad {
+        flex-direction: column;
+        flex-shrink: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .detail {
+    background: white;
+    padding: $base-line-height * (3 / 4);
+    display: block;
+    @media (min-width: 750px) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "../assets/variables";
+
+.layoutWrapper {
+  background: rgba(0, 0, 0, 0.03);
+  min-height: 100vh;
+
+  .bg {
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .containerBody {
+    max-width: 960px;
+    margin: 0 auto;
+    @media (min-width: 750px) {
+      padding: $base-line-height * (3 / 4);
+    }
+  }
+
+  .containerHeader {
+    padding: $base-line-height * (3 / 4);
+    padding-bottom: $base-line-height * (3 / 4);
+    max-width: 960;
+    margin: 0 auto;
+    overflow: hidden;
+
+    /** home link **/
+    .homeLink {
+      display: inline-block;
+      float: left;
+      text-decoration: none;
+
+      h1 {
+        font-size: 1.7411rem;
+        line-height: 2.1rem;
+        line-height: 1;
+        margin: 0;
+        overflow: hidden;
+
+        .homeIcon {
+          top: -4px;
+          display: inline-block;
+          position: relative;
+        }
+
+        .title {
+          padding-left: $base-line-height * 1;
+          border-left: 1px solid rgba(0, 0, 0, 0.3);
+          line-height: 1;
+          margin-left: $base-line-height * 1;
+        }
+      }
+    }
+
+    /** about link **/
+    .aboutLink {
+      color: inherit;
+      display: inline-block;
+      float: right;
+      line-height: 35px;
+      text-decoration: none;
+    }
+  }
+}

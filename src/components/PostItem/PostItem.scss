@@ -1,0 +1,67 @@
+@import "../../assets/variables";
+
+.PostItem {
+  display: block;
+  flex: 1 0 0%;
+  width: 100%;
+  max-width: 290.1;
+  position: relative;
+  margin-right: $base-line-height * (1 / 8);
+
+  :last-child {
+    margin-right: 0;
+  }
+
+  @media (min-width: $tablet) {
+    margin-right: $base-line-height * 1;
+  }
+
+  .imageWrapper {
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+
+    .imageItem {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      vertical-align: baseline;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .pad {
+      flex-direction: column;
+      flex-shrink: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .likes {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.31951rem;
+    line-height: 2.1rem;
+  }
+
+  .groupIcon {
+    font-size: 90%;
+    margin-right: $base-line-height * (1 / 4);
+  }
+}
