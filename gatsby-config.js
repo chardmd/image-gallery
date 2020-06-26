@@ -69,6 +69,8 @@ module.exports = {
         pathToConfigModule: "src/utils/typography",
       },
     },
+    // Automatically generates a _headers file and a _redirects file
+    // at the root of the public folder to configure HTTP headers and redirects on Netlify.
     "gatsby-plugin-netlify",
   ],
 };
