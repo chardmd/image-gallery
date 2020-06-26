@@ -1,10 +1,10 @@
-exports.shouldUpdateScroll = args => {
-  const windowWidth = window.innerWidth
+exports.shouldUpdateScroll = (args) => {
+  const windowWidth = window.innerWidth;
   // Scroll position only matters on mobile as on larger screens, we use a
   // modal.
-  return windowWidth < 750
-}
+  return windowWidth < 750;
+};
 
 exports.onInitialClientRender = () => {
-  window.___GATSBY_INITIAL_RENDER_COMPLETE = true
-}
+  window.___GATSBY_INITIAL_RENDER_COMPLETE = true;
+};

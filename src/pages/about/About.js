@@ -1,7 +1,7 @@
-import React from "react"
-import Layout from "../../layouts"
+import React from "react";
+import Layout from "../../layouts";
 
-import "./About.scss"
+import "./About.scss";
 
 class About extends React.Component {
   render() {
@@ -15,8 +15,8 @@ class About extends React.Component {
           </p>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default About
+export default About;

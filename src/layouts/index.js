@@ -1,42 +1,42 @@
-import * as PropTypes from "prop-types"
-import React from "react"
-import HomeIcon from "react-icons/lib/fa/Home"
-import { Link, PageRenderer } from "gatsby"
+import * as PropTypes from "prop-types";
+import React from "react";
+import HomeIcon from "react-icons/lib/fa/home";
+import { Link, PageRenderer } from "gatsby";
 
 // Load the css for the Space Mono font.
-import "typeface-space-mono"
+import "typeface-space-mono";
 
-import CustomModal from "../components/Modal"
+import CustomModal from "../components/Modal";
 
-import "./Layout.scss"
+import "./Layout.scss";
 
-let windowWidth
+let windowWidth;
 
 class Layout extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
     isModal: PropTypes.bool,
-  }
+  };
 
   render() {
-    const { location } = this.props
-    let isModal = false
-    if (!windowWidth && typeof window !== `undefined`) {
-      windowWidth = window.innerWidth
+    const { location } = this.props;
+    let isModal = false;
+    if (!windowWidth && typeof window !== "undefined") {
+      windowWidth = window.innerWidth;
     }
     if (this.props.isModal && windowWidth > 750) {
-      isModal = true
+      isModal = true;
     }
 
     if (isModal && CustomModal) {
       return (
         <React.Fragment>
-          <PageRenderer location={{ pathname: `/` }} />
+          <PageRenderer location={{ pathname: "/" }} />
           <CustomModal isOpen={true} location={location}>
             {this.props.children}
           </CustomModal>
         </React.Fragment>
-      )
+      );
     }
 
     return (
@@ -56,8 +56,8 @@ class Layout extends React.Component {
         </div>
         <div className="containerBody">{this.props.children}</div>
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;

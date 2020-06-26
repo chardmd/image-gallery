@@ -1,17 +1,18 @@
-import * as PropTypes from "prop-types"
-import chunk from "lodash/chunk"
-import React from "react"
-import { graphql } from "gatsby"
+/* eslint-disable operator-linebreak */
+import * as PropTypes from "prop-types";
+import chunk from "lodash/chunk";
+import React from "react";
+import { graphql } from "gatsby";
 
-import Avatar from "../components/Avatar"
-import PostItem from "../components/PostItem"
-import Layout from "../layouts"
+import Avatar from "../components/Avatar";
+import PostItem from "../components/PostItem";
+import Layout from "../layouts";
 
-import "./Index.scss"
+import "./Index.scss";
 
 // This would normally be in a Redux store or some other global data store.
-if (typeof window !== `undefined`) {
-  window.postsToShow = 12
+if (typeof window !== "undefined") {
+  window.postsToShow = 12;
 }
 
 class Index extends React.Component {
@@ -21,53 +22,53 @@ class Index extends React.Component {
       user: PropTypes.object,
       allPostsJson: PropTypes.object,
     }),
-  }
+  };
 
   constructor() {
-    super()
-    let postsToShow = 12
-    if (typeof window !== `undefined`) {
-      postsToShow = window.postsToShow
+    super();
+    let postsToShow = 12;
+    if (typeof window !== "undefined") {
+      postsToShow = window.postsToShow;
     }
 
     this.state = {
       showingMore: postsToShow > 12,
       postsToShow,
-    }
+    };
   }
 
   update() {
     const distanceToBottom =
       document.documentElement.offsetHeight -
-      (window.scrollY + window.innerHeight)
+      (window.scrollY + window.innerHeight);
     if (this.state.showingMore && distanceToBottom < 100) {
-      this.setState({ postsToShow: this.state.postsToShow + 12 })
+      this.setState({ postsToShow: this.state.postsToShow + 12 });
     }
-    this.ticking = false
+    this.ticking = false;
   }
 
   handleScroll = () => {
     if (!this.ticking) {
-      this.ticking = true
-      requestAnimationFrame(() => this.update())
+      this.ticking = true;
+      requestAnimationFrame(() => this.update());
     }
-  }
+  };
 
   componentDidMount() {
-    window.addEventListener(`scroll`, this.handleScroll)
+    window.addEventListener("scroll", this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener(`scroll`, this.handleScroll)
-    window.postsToShow = this.state.postsToShow
+    window.removeEventListener("scroll", this.handleScroll);
+    window.postsToShow = this.state.postsToShow;
   }
 
   render() {
-    let { allPostsJson, user } = this.props.data
+    const { allPostsJson } = this.props.data;
+    let { user } = this.props.data;
+    const posts = allPostsJson.edges.map((e) => e.node);
 
-    const posts = allPostsJson.edges.map(e => e.node)
-
-    user = user.edges[0].node
+    user = user.edges[0].node;
 
     return (
       <Layout location={this.props.location}>
@@ -88,12 +89,12 @@ class Index extends React.Component {
           {/* posts */}
           {chunk(posts.slice(0, this.state.postsToShow), 3).map((chunk, i) => (
             <div key={`chunk-${i}`} className="postWrapper">
-              {chunk.map(node => (
+              {chunk.map((node) => (
                 <PostItem
                   key={node.id}
                   post={node}
                   location={this.props.location}
-                  onClick={post => this.setState({ activePost: post })}
+                  onClick={(post) => this.setState({ activePost: post })}
                 />
               ))}
             </div>
@@ -105,7 +106,7 @@ class Index extends React.Component {
                 this.setState({
                   postsToShow: this.state.postsToShow + 12,
                   showingMore: true,
-                })
+                });
               }}
             >
               Load More
@@ -113,11 +114,11 @@ class Index extends React.Component {
           )}
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default Index
+export default Index;
 
 export const pageQuery = graphql`
   query {
@@ -141,4 +142,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

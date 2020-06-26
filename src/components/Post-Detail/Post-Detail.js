@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
-import "./Post-Detail.scss"
+import "./Post-Detail.scss";
 
 class PostDetail extends React.Component {
   render() {
@@ -14,16 +14,16 @@ class PostDetail extends React.Component {
       weeksAgo,
       text,
       avatar,
-    } = this.props.post
+    } = this.props.post;
 
-    const { big } = bigImage.childImageSharp
+    const { big } = bigImage.childImageSharp;
 
     const UserBar = () => (
       <div className="UseBar">
         <img src={avatar} alt={username} className="postDetailAvatar" />
         <h5 className="postDetailUsername">{username}</h5>
       </div>
-    )
+    );
 
     const PostDetails = () => (
       <div className="PostDetails">
@@ -35,10 +35,10 @@ class PostDetail extends React.Component {
           <strong>{username}</strong> {text}
         </div>
       </div>
-    )
+    );
 
     return (
-      <div onClick={e => e.stopPropagation()} className="ModuleDetail">
+      <div onClick={(e) => e.stopPropagation()} className="ModuleDetail">
         <div className="moduleDetailWrapper">
           <UserBar />
           <div className="container">
@@ -48,7 +48,7 @@ class PostDetail extends React.Component {
         <div to={`/${id}/`} className="imageWrapper">
           <div className="imageContainer">
             <img
-              alt={``}
+              alt={""}
               key={big.src}
               src={big.src}
               srcSet={big.srcSet}
@@ -62,11 +62,11 @@ class PostDetail extends React.Component {
           <PostDetails />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default PostDetail
+export default PostDetail;
 
 export const postDetailFragment = graphql`
   fragment PostDetail_details on PostsJson {
@@ -96,4 +96,4 @@ export const postDetailFragment = graphql`
       }
     }
   }
-`
+`;

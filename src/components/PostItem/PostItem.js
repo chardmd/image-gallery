@@ -1,37 +1,30 @@
-import * as PropTypes from "prop-types"
-import React, { useState } from "react"
-import GroupIcon from "react-icons/lib/fa/group"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React, { useState } from "react";
+import GroupIcon from "react-icons/lib/fa/group";
+import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 
-import "./PostItem.scss"
+import "./PostItem.scss";
 
-let touched = false
-
-const propTypes = {
-  post: PropTypes.shape({
-    smallImage: PropTypes.object,
-    likes: PropTypes.number,
-    id: PropTypes.string.isRequired,
-  }).isRequired,
-}
+let touched = false;
 
 const Post = ({ post }) => {
-  const [hovering, setHovering] = useState(false)
-  const { smallImage, likes, id } = post
-  const { small } = smallImage.childImageSharp
+  const [hovering, setHovering] = useState(false);
+  const { smallImage, likes, id } = post;
+  const { small } = smallImage.childImageSharp;
   return (
     <Link
       to={`/${id}/`}
-      onTouchStart={() => (touched = true)}
+      onTouchStart={() => {
+        touched = true;
+      }}
       onMouseEnter={() => {
         if (!touched) {
-          setHovering(true)
+          setHovering(true);
         }
       }}
       onMouseLeave={() => {
         if (!touched) {
-          setHovering(false)
+          setHovering(false);
         }
       }}
       className="PostItem"
@@ -43,16 +36,14 @@ const Post = ({ post }) => {
       {/* overlay */}
       {hovering && (
         <div className="likes">
-          <GroupIcon className="groupIcon" />
-          {` `}
-          {likes}
+          <GroupIcon className="groupIcon" /> {likes}
         </div>
       )}
     </Link>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
 
 export const postFragment = graphql`
   fragment Post_details on PostsJson {
@@ -70,4 +61,4 @@ export const postFragment = graphql`
       }
     }
   }
-`
+`;
